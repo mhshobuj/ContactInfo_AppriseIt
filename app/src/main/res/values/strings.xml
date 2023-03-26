@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ContactInfo_AppriseIt</string>
+    <string name="register_info">Don\'t have an account? <b> Register</b></string>
+    <string name="login_info">I have an account? <b> Login</b></string>
+</resources>
