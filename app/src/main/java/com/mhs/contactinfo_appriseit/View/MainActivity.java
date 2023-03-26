@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<SavedInfoModel> savedInfoModels;
     private ContactListAdapter contactListAdapter;
     private FirebaseFirestore firebaseFirestore;
-    private FirebaseAuth auth;
     private ProgressDialog progressDialog;
 
     @Override
@@ -39,15 +38,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        auth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         progressDialog = new ProgressDialog(MainActivity.this);
         savedInfoModels = new ArrayList<>();
         binding.recyclerViewContact.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
         getContactInfo();
-
-        auth.getCurrentUser().getMetadata().getLastSignInTimestamp();
 
         binding.txtLogout.setOnClickListener(view -> {
             PreferenceHelper.deleteData(MainActivity.this, Constants.USER_ID);
